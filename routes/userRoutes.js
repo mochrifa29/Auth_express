@@ -4,6 +4,6 @@ import { allUser } from "../controller/userController.js";
 
 const router = express.Router();
 
-router.get("/alluser", protectMiddleware, isAdmin, allUser);
+router.get("/allUser", protectMiddleware, isAdmin, allUser);
 
 export default router;
