@@ -29,3 +29,12 @@ export const isAdmin = asyncHandler(async (req, res, next) => {
     throw new Error("Not Autorization is admin");
   }
 });
+
+export const verifikasiMiddleware = asyncHandler(async (req, res, next) => {
+  if (req.user && req.user.isVerified && req.user.emailVerifiedAt) {
+    next();
+  } else {
+    res.status(401);
+    throw new Error("Email belum terverifikasi");
+  }
+});
